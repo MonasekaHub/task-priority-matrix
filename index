@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Priority Matrix</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Task Priority Matrix</h1>
+            <p>Organize your tasks using the Eisenhower Decision Matrix</p>
+        </header>
+
+        <div class="task-input-section">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Enter a new task..." maxlength="100">
+                <button id="addTaskBtn">Add Task</button>
+            </div>
+        </div>
+
+        <div class="matrix-container">
+            <div class="axis-labels">
+                <div class="y-axis-label">
+                    <span class="axis-title">URGENT</span>
+                    <div class="axis-scale">
+                        <span>High</span>
+                        <span>Low</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="matrix-grid">
+                <div class="quadrant urgent-important" data-quadrant="1">
+                    <div class="quadrant-header">
+                        <h3>🔥 Do First</h3>
+                        <p>Urgent & Important</p>
+                    </div>
+                    <div class="task-list" id="quadrant-1"></div>
+                </div>
+                
+                <div class="quadrant not-urgent-important" data-quadrant="2">
+                    <div class="quadrant-header">
+                        <h3>📅 Schedule</h3>
+                        <p>Important, Not Urgent</p>
+                    </div>
+                    <div class="task-list" id="quadrant-2"></div>
+                </div>
+                
+                <div class="quadrant urgent-not-important" data-quadrant="3">
+                    <div class="quadrant-header">
+                        <h3>👥 Delegate</h3>
+                        <p>Urgent, Not Important</p>
+                    </div>
+                    <div class="task-list" id="quadrant-3"></div>
+                </div>
+                
+                <div class="quadrant not-urgent-not-important" data-quadrant="4">
+                    <div class="quadrant-header">
+                        <h3>🗑️ Eliminate</h3>
+                        <p>Neither Urgent nor Important</p>
+                    </div>
+                    <div class="task-list" id="quadrant-4"></div>
+                </div>
+            </div>
+            
+            <div class="x-axis-label">
+                <span class="axis-title">IMPORTANT</span>
+                <div class="axis-scale">
+                    <span>High</span>
+                    <span>Low</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-item">
+                <span class="stat-number" id="totalTasks">0</span>
+                <span class="stat-label">Total Tasks</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedTasks">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Task</h2>
+            <div class="modal-body">
+                <input type="text" id="modalTaskInput" placeholder="Task description...">
+                <div class="priority-selection">
+                    <h3>Select Priority Quadrant:</h3>
+                    <div class="priority-options">
+                        <button class="priority-btn" data-quadrant="1">🔥 Do First</button>
+                        <button class="priority-btn" data-quadrant="2">📅 Schedule</button>
+                        <button class="priority-btn" data-quadrant="3">👥 Delegate</button>
+                        <button class="priority-btn" data-quadrant="4">🗑️ Eliminate</button>
+                    </div>
+                </div>
+                <button id="saveTaskBtn">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
